@@ -1,0 +1,29 @@
+[tag_ansibleNodeType_etcd]
+
+[tag_ansibleNodeType_worker]
+
+[tag_ansibleNodeType_controller]
+
+
+[all:vars]
+ansible_user = ubuntu
+#ansible_become = true
+
+#[kube-node:vars]
+#custom_labels="agw.kubernetes.io/test=true"
+
+[kube-master:children]
+tag_ansibleNodeType_controller
+
+[etcd:children]
+tag_ansibleNodeType_etcd
+
+[kube-node:children]
+tag_ansibleNodeType_worker
+
+[k8s-cluster:children]
+kube-master
+kube-node
+
+
+
