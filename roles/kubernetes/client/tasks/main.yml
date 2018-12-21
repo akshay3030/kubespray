@@ -73,3 +73,15 @@
   run_once: yes
   delegate_to: localhost
   when: kubectl_localhost|default(false) and kubeconfig_localhost|default(false)
+
+- name: Ansible lineinfile regexp replace admin.conf on local to point to aws load balancer
+  lineinfile:
+    dest: "{{ artifacts_dir }}/admin.conf"
+    regexp: 'server:'
+    line: "    server: https://{{aws_loadbalancer_name}}:{{ kube_apiserver_port }}"
+    backrefs: yes
+  delegate_to: localhost
+  become: no
+  run_once: yes
+  when: kubectl_localhost|default(false) and kubeconfig_localhost|default(false)
+

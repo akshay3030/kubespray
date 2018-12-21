@@ -112,7 +112,11 @@ kube_encrypt_secret_data: false
 # DNS configuration.
 # Kubernetes cluster name, also will be used as DNS domain
 #cluster_name: cluster.local
-cluster_name: kubernetes-1917405717.us-east-1.elb.amazonaws.com
+cluster_name: cluster.aws
+
+# AWS load balancer name for kube api
+aws_loadbalancer_name: kubernetes-680672066.us-east-1.elb.amazonaws.com
+
 # Subdomains of DNS domain to be resolved via /etc/resolv.conf for hostnet pods
 ndots: 2
 # Can be dnsmasq_kubedns, kubedns, coredns, coredns_dual, manual or none

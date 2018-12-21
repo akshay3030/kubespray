@@ -44,6 +44,7 @@
       kubernetes.default.svc
       kubernetes.default.svc.{{ dns_domain }}
       {{ kube_apiserver_ip }}
+      {{ aws_loadbalancer_name }}
       localhost
       127.0.0.1
       {{ ' '.join(groups['kube-master']) }}
