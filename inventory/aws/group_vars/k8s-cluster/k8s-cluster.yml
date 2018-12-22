@@ -114,8 +114,8 @@ kube_encrypt_secret_data: false
 #cluster_name: cluster.local
 cluster_name: cluster.aws
 
-# AWS load balancer name for kube api
-aws_loadbalancer_name: kubernetes-680672066.us-east-1.elb.amazonaws.com
+# AWS load balancerDNS or R53-Recordset pointing to all controller servers(A-record) or loadbalancer dns(Alias), hosting kube api
+aws_loadbalancer_name: k8api.devops.xxxxx.io
 
 # Subdomains of DNS domain to be resolved via /etc/resolv.conf for hostnet pods
 ndots: 2
