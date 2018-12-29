@@ -78,7 +78,8 @@
   lineinfile:
     dest: "{{ artifacts_dir }}/admin.conf"
     regexp: 'server:'
-    line: "    server: https://{{aws_loadbalancer_name}}:{{ kube_apiserver_port }}"
+    #line: "    server: https://{{aws_loadbalancer_name}}:{{ kube_apiserver_port }}"
+    line: "    server: https://{{aws_loadbalancer_name}}"
     backrefs: yes
   delegate_to: localhost
   become: no
